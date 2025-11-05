@@ -1,0 +1,151 @@
+body{
+    background-color: #222831;
+  }
+  
+  
+  h1{
+      color: aliceblue;
+      place-content: middle;
+      font-size: medium;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+      font-size: x-large;
+    }
+  
+    h2{
+      color: aliceblue;
+      place-content: middle;
+      font-size: larger;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      text-align: center;
+    }
+  
+    h3{
+      color: aliceblue;
+      place-content: middle;
+      font-size: medium;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      text-align: center;
+    }
+  
+    h4{
+     color: aliceblue;
+      place-content: middle;
+     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+     text-align: center;
+     font-size: medium;
+    }
+  
+    h6{
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      font-size: larger;
+      color: aliceblue;
+      text-align: center;
+    }
+  
+    div{
+      text-align: center;
+    }
+  
+    p {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: aliceblue;
+    text-align: center;
+  }
+  
+   
+  
+    hr {
+      border: none;
+      height: 2px;
+      background-color: aliceblue;
+    }
+    
+  
+  header{
+    color: aliceblue;
+    text-align: center;
+   }
+  
+  
+  
+  h6{
+      font-size: large;
+  }
+  
+  
+   a {
+    display: inline-block;
+    padding: 10px 20px;
+   background-color: mediumpurple;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: large;
+   font-style: initial;
+    font-weight: 100;
+    font-size: larger;
+   text-align: justify;
+    display: inline block;
+    transition: transform 0.3s ease
+  
+    }
+  
+  
+    footer{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  
+  
+  footer{
+    background-color: aliceblue;
+  }
+  
+  
+  footer {
+    text-align: center;
+    padding: 30px;
+    background: var(--dark-gray);
+    color: var(--white);
+    margin-top: 60px;
+  }
+  
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .footer-logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--primary-light);
+  }
+  
+  .footer-links {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .footer-links a {
+    color: var(--white);
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  
+  .footer-links a:hover {
+    color: var(--primary-light);
+  }
+  
+  .copyright {
+    font-size: 14px;
+    opacity: 0.8;
+    margin-top: 10px;
+  }

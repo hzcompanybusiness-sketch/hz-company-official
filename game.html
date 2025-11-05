@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HZ GAMES - ألعاب HZ</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #0f2027;
+            --secondary: #203a43;
+            --accent: #2c5364;
+            --text: #333;
+            --light: #fff;
+            --dark: #1a1a1a;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
+            color: var(--light);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* الهيدر */
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            background: linear-gradient(to right, #12c2e9, #c471ed);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* قائمة الجوال */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--light);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        nav a {
+            color: var(--light);
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin: 20px 0;
+            color: var(--light);
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .page-title {
+            text-align: center;
+            padding: 30px 0;
+            font-size: 2.5rem;
+            background: linear-gradient(to right, #12c2e9, #c471ed, #f64f59);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .game-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .game-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: linear-gradient(to right, #f64f59, #c471ed);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .game-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 15px;
+            background: linear-gradient(135deg, #12c2e9, #c471ed);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .game-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #c471ed;
+        }
+
+        .game-description {
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .game-stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 15px 0;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .play-btn {
+            display: inline-block;
+            padding: 10px 25px;
+            background: linear-gradient(to right, #12c2e9, #c471ed);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .play-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .game-card {
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        /* وسائط الاستعلام للجوال */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-wrap: wrap;
+            }
+            
+            .menu-toggle {
+                display: flex;
+            }
+            
+            nav {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                margin-top: 15px;
+            }
+            
+            nav.active {
+                display: flex;
+            }
+            
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .games-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo h1 {
+                font-size: 1.2rem;
+            }
+            
+            .page-title {
+                font-size: 1.8rem;
+            }
+            
+            .game-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="ChatGPT Image Nov 5, 2025, 02_33_11 PM.png" alt="HZ COMPANY LOGO">
+                    <h1>HZ COMPANY</h1>
+                </div>
+                
+                <div class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                
+                <nav id="mainNav">
+                    <a href="index.html">الرئيسية</a>
+                    <a href="game.html">الألعاب</a>
+                    <a href="about.html">من نحن</a>
+                    <a href="contact.html">اتصل بنا</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <a href="index.html" class="back-btn">← العودة للصفحة الرئيسية</a>
+        
+        <h1 class="page-title">ألعاب HZ الممتعة</h1>
+
+        <div class="games-grid">
+            <div class="game-card">
+                <div class="game-badge">الأكثر لعباً</div>
+                <div class="game-icon">🐦</div>
+                <h3>HZ FLAPPY</h3>
+                <p class="game-description">استمتع بتجربة لعبة Flappy Bird الكلاسيكية مع لمسة HZ المميزة!</p>
+                <div class="game-stats">
+                    <div>⭐ 4.5/5</div>
+                    <div>👥 10K+ لاعب</div>
+                </div>
+                <a href="https://hz-company.github.io/hz-flappy-game/" class="play-btn">العب الآن</a>
+            </div>
+
+            <div class="game-card">
+                <div class="game-badge">جديد</div>
+                <div class="game-icon">🪙</div>
+                <h3>HZ COIN</h3>
+                <p class="game-description">اجمع العملات المعدنية وتجنب العقبات في هذه المغامرة المثيرة!</p>
+                <div class="game-stats">
+                    <div>⭐ 4.2/5</div>
+                    <div>👥 5K+ لاعب</div>
+                </div>
+                <a href="https://hzcompanybusiness-sketch.github.io/hz-coin/" class="play-btn">العب الآن</a>
+            </div>
+
+            <div class="game-card">
+                <div class="game-icon">🧩</div>
+                <h3>HZ MAZE</h3>
+                <p class="game-description">اختر طريقك عبر المتاهات المعقدة واختبر مهاراتك في حل الألغاز!</p>
+                <div class="game-stats">
+                    <div>⭐ 4.7/5</div>
+                    <div>👥 8K+ لاعب</div>
+                </div>
+                <a href="https://hzcompanybusiness-sketch.github.io/hz-maze/" class="play-btn">العب الآن</a>
+            </div>
+
+            <div class="game-card">
+                <div class="game-badge">تحدي</div>
+                <div class="game-icon">🚄</div>
+                <h3>HZ SUPWAY</h3>
+                <p class="game-description">تجنب القطارات السريعة واجتاز المسارات في هذه اللعبة المليئة بالتحدي!</p>
+                <div class="game-stats">
+                    <div>⭐ 4.3/5</div>
+                    <div>👥 7K+ لاعب</div>
+                </div>
+                <a href="https://hzcompanybusiness-sketch.github.io/hz-supway/" class="play-btn">العب الآن</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>© 2023 HZ COMPANY. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <script>
+        // قائمة الجوال
+        const menuToggle = document.getElementById('menuToggle');
+        const mainNav = document.getElementById('mainNav');
+        
+        menuToggle.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+        });
+        
+        // إغلاق القائمة عند النقر على رابط
+        const navLinks = document.querySelectorAll('nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mainNav.classList.remove('active');
+            });
+        });
+        
+        // تأثير النقر على أزرار اللعب
+        const playButtons = document.querySelectorAll('.play-btn');
+        playButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const originalText = this.textContent;
+                this.textContent = 'جاري التحميل...';
+                this.style.opacity = '0.7';
+                
+                setTimeout(() => {
+                    window.location.href = this.getAttribute('href');
+                }, 1500);
+            });
+        });
+    </script>
+</body>
+</html>
